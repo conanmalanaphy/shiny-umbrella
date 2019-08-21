@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { Select} from 'antd';
 const { Option } = Select;
-import React,{Suspense,useState,lazy} from 'react';
+import React,{useState} from 'react';
 import { css, jsx } from '@emotion/core'
 import './App.css';
 import BasicMenu from './Core/Menu';
 import Dashboard from './Core/Dashboard';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import InitialComboBox from './Core/InitialComboBox';
-const  ComboBox = lazy(() => import('./Core/ComboBox'));
+import  ComboBox  from './Core/ComboBox';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -42,23 +43,25 @@ const comboBox2 = css`
 function App() {
   const [count, setCount] = useState(0);
   return (
+    <Router>
     <div>
       <div css={wrapper}>
         <div css={basicMenu}>
             <BasicMenu/>
         </div>
         <div css={dashboard}>
-      <InitialComboBox onCdange ={() => setCount(count + 1)}/>
+        <Route exact path="/" render={() => <InitialComboBox onCdange ={() => setCount(count + 1)}/>} />
+        <Route path="/otherbutton" render={() => <ComboBox multiple="default" value = {count+1}></ComboBox>} />
+        <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count+2}></ComboBox>} />
         </div>
         {count > 2 &&
         <div css={comboBox2}>
-          <Suspense fallback={<div>Loading...</div>}>
               <ComboBox multiple="default" value = {count+1} />
-          </Suspense>
         </div>}
         
       </div>
     </div>
+    </Router>
   );
   };
 export default App;
