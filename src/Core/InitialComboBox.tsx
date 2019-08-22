@@ -9,7 +9,6 @@ return(    <div>
 <Select
   style={{ width: '100%' }}
   placeholder="Please select"
-  defaultValue={['Latest']}
   onChange={props.onCdange}
 >
   <Option key="Latest"> 1st </Option>

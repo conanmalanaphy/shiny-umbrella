@@ -9,6 +9,7 @@ import Dashboard from './Core/Dashboard';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import InitialComboBox from './Core/InitialComboBox';
 import  ComboBox  from './Core/ComboBox';
+import  axios  from 'axios';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -41,7 +42,20 @@ const comboBox2 = css`
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState([ {
+    "id": 1,
+    "name": "Leanne Graham",
+  }]);
+  const apiCall = () =>{
+    axios({
+      method: 'get',
+      url: 'https://jsonplaceholder.typicode.com/users'
+    })
+      .then(function (response) {
+        setCount(response.data)
+      });
+
+  }
   return (
     <Router>
     <div>
@@ -50,13 +64,14 @@ function App() {
             <BasicMenu/>
         </div>
         <div css={dashboard}>
-        <Route exact path="/" render={() => <InitialComboBox onCdange ={() => setCount(count + 1)}/>} />
-        <Route path="/otherbutton" render={() => <ComboBox multiple="default" value = {count+1}></ComboBox>} />
-        <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count+2}></ComboBox>} />
+        <Route exact path="/" render={() => <InitialComboBox onCdange ={apiCall} />} />
+        <Route path="/otherbutton" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
+        <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
         </div>
-        {count > 2 &&
+        {count.length > 2 &&
         <div css={comboBox2}>
-              <ComboBox multiple="default" value = {count+1} />
+              <ComboBox multiple="default" value = {count} />
+              
         </div>}
         
       </div>
