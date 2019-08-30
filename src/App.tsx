@@ -10,6 +10,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import InitialComboBox from './Core/InitialComboBox';
 import  ComboBox  from './Core/ComboBox';
 import  axios  from 'axios';
+import InitialPage from './Core/InitialPage';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -64,7 +65,7 @@ function App() {
             <BasicMenu/>
         </div>
         <div css={dashboard}>
-        <Route exact path="/" render={() => <InitialComboBox onCdange ={apiCall} />} />
+        <Route exact path="/" render={() => <InitialPage />} />
         <Route path="/otherbutton" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
         <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
         </div>
