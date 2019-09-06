@@ -11,6 +11,8 @@ import InitialComboBox from './Core/InitialComboBox';
 import  ComboBox  from './Core/ComboBox';
 import  axios  from 'axios';
 import InitialPage from './Core/InitialPage';
+import SecondPage from './Core/SecondPage';
+
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -66,7 +68,7 @@ function App() {
         </div>
         <div css={dashboard}>
         <Route exact path="/" render={() => <InitialPage />} />
-        <Route path="/otherbutton" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
+        <Route path="/otherbutton" render={() =>  <SecondPage />} />
         <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
         </div>
         {count.length > 2 &&
