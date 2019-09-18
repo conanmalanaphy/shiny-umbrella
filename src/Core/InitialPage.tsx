@@ -1,18 +1,72 @@
+/** @jsx jsx */
 import React from 'react';
 import { Input,Button } from 'antd';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { css, jsx } from '@emotion/core'
+
+/////////////////////////////////////
+///          CSS Styles           ///
+/////////////////////////////////////
+const wrapper = css`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px 300px 300px;
+  grid-template-areas:
+                      "box1   box2   box3";
+	background-color: #fff;
+  color: #444;
+  width:100%;
+`
+const box1 = css`
+ padding: 20px;
+  grid-area: box1;
+`
+const box2 = css`
+  grid-area: box2;
+  display: inline-block;
+ padding: 20px;
+`
+const box3 = css`
+  grid-area: box3;
+ padding: 20px;
+`
+const sayHello = function() {
+
+}
+const pStyle = {
+  width:'90%',
+  color:'black',
+  'background-color':'#001628',
+  border: '2px solid black',
+  'border-radius': '5px',
+  padding:'10px',
+  '-moz-box-shadow':    '3px 3px 5px 6px #ccc',
+  '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
+  'box-shadow':         '3px 3px 5px 6px #ccc'
+};
+
+const dStyle = {
+  width:'100%',
+  color:'black',
+  'background-color':'#C4C4C4',
+  border: '1px solid black',
+  'border-radius': '5px',
+  padding:'5px'
+};
 
 const InitialPage: React.FunctionComponent = () =>
   (
     <div>      
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed dictum lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In accumsan tellus purus, id sodales ex consectetur et. Nulla congue laoreet ligula vitae lacinia. Integer iaculis sem ut est sagittis, eu vulputate mi venenatis. Morbi mauris magna, scelerisque et vehicula sit amet, scelerisque et neque. Ut gravida ac massa at fringilla. Aenean maximus ultrices lectus ac sollicitudin. Nullam nisi tortor, hendrerit vitae sagittis eu, gravida eu est. Cras ullamcorper augue sed malesuada vestibulum. In fringilla faucibus sapien, ut aliquam tellus ultricies a. Aenean accumsan nisi quis leo dapibus rutrum.
+     <div className="parallax"></div>
 
-Mauris euismod nulla nulla, id mattis libero tincidunt eu. Vivamus sit amet dolor purus. Mauris a egestas dolor. Ut molestie sagittis tincidunt. Ut sit amet maximus nisl. Suspendisse feugiat, sapien ac vehicula vestibulum, sem orci cursus dolor, eu ullamcorper quam purus et elit. Nullam lectus risus, euismod at ipsum a, molestie egestas erat. Quisque ultrices ligula a ligula sagittis, vitae vestibulum nisi molestie. Vestibulum sit amet justo vel mi consectetur tempus.
-
-Fusce non est pretium, euismod sapien vestibulum, posuere est. Aenean augue lorem, ultrices quis urna non, blandit dictum elit. Cras commodo ac libero id porttitor. Sed luctus consectetur massa vitae fermentum. Vestibulum congue quis nunc in sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus lobortis sagittis risus, id tempor diam finibus et. Proin a nisi varius, vestibulum dui in, hendrerit erat. In pretium sagittis magna in consequat. Mauris id odio ligula. Pellentesque egestas porta quam, vitae sollicitudin justo pellentesque nec.
-
-Integer tellus justo, ullamcorper in aliquam et, bibendum ac urna. Etiam justo nisl, imperdiet a rutrum rhoncus, rutrum vitae erat. Nullam sit amet felis mollis, euismod urna et, dictum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam et porta neque. Duis non ligula tempor, finibus erat nec, finibus mauris. Nulla interdum felis nec urna tincidunt porta. Morbi diam orci, lacinia eget lacinia id, venenatis vel odio. Vestibulum ullamcorper est leo, ut convallis ante sagittis ut. Vivamus id magna elit.
-<Input placeholder="Basic usage" /><Button type="primary">Primary</Button>
+      <div className="bob" css={wrapper}>
+      <div css={box1}> <div style={pStyle}> <div style={dStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing</div></div></div>
+      <div css={box2}> <div style={pStyle}> <div style={dStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing</div></div></div>
+      <div css={box3}><div style={pStyle}> <div style={dStyle}> Lorem ipsum dolor sit amet, consectetur adipiscing</div>      </div></div>
+      </div>     
+      <button onClick={sayHello}>
+      Click me!
+    </button>
     </div>
   );
 

@@ -31,3 +31,27 @@
     transform: rotate(360deg);
   }
 }
+.parallax {
+  /* The image used */
+  background-image: url("spaceship.png");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bob{
+  height:1000px;background-color:white;font-size:36px
+}
+.menu-center {
+  /* The image used */
+  background-image: url("rocket.png");
+  background-repeat: no-repeat;
+height:100%;
+width:50px;
+}

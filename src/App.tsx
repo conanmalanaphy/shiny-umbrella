@@ -20,10 +20,10 @@ import SecondPage from './Core/SecondPage';
 const wrapper = css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px 700px 100px;
+  grid-template-rows: 64px 700px 100px;
   grid-template-areas:
                       "basicMenu   basicMenu   basicMenu"
-                       "dashboard     comboBox     comboBox2"
+                       "dashboard     dashboard     dashboard"
                        "footer   footer   footer";
 	background-color: #fff;
 	color: #444;
