@@ -62,7 +62,7 @@ const dStyle = {
 };
 
 
-class InitialPage extends Component {
+class ThirdPage extends Component {
   public state:any = [];
   constructor(props:any) {
     super(props);
@@ -71,40 +71,38 @@ class InitialPage extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://www.mocky.io/v2/5d87d3b134000041870a15c0')
+    fetch('https://official-joke-api.appspot.com/random_ten')
       .then(response => response.json())
-      .then(data => this.state = data);
+      .then(data => 
+        this.setState({ data: data })
+      );
   }
 
   render() {
-        return (
+    const hits  = this.state.data;
+    if(hits){    
+    return (
       <div>   
          
-      <div className="parallax"></div>
- 
-       <div className="bob" css={wrapper}>
-       <div css={box1}> <div style={pStyle}> <div style={dStyle}>Conan</div></div></div>
-       <div css={box2}> <div style={pStyle}> <div style={dStyle}>Malanaphy</div></div></div>
-       <div css={box3}><div style={pStyle}> <div style={dStyle}>2019</div></div></div>
-       <div css={box4}> list of listo
-       <ul>
-<li>New background image</li>
-<li>Colour palette</li>
-<li>Connect to basic online api</li>
-<li>create SQL api from front end masters</li>
-<li>Correct menu image</li>
-
-
-       </ul>
-       </div>
-
-       </div>     
-       <button onClick={sayHello}>
-       Click me!
-     </button>
+      <ul>
+        {  hits.map(hit =>
+          <li key={hit.id}>
+            <h1>{hit.setup}</h1>
+            <h4>{hit.punchline}</h4>
+          </li>
+        )}
+      </ul>
+    
      </div>
     );
+  }else{
+    return(
+     <div>
+       wait for the funny stuff
+     </div>
+    )
+  }
   }
 };
 
-export default InitialPage;
+export default ThirdPage;

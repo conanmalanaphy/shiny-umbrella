@@ -12,7 +12,7 @@ import  ComboBox  from './Core/ComboBox';
 import  axios  from 'axios';
 import InitialPage from './Core/InitialPage';
 import SecondPage from './Core/SecondPage';
-
+import ThirdPage from './Core/ThirdPage';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -69,7 +69,7 @@ function App() {
         <div css={dashboard}>
         <Route exact path="/" render={() => <InitialPage />} />
         <Route path="/otherbutton" render={() =>  <SecondPage />} />
-        <Route path="/otherbutton2" render={() => <ComboBox multiple="default" value = {count}></ComboBox>} />
+        <Route path="/otherbutton2" render={() => <ThirdPage />} />
         </div>
         {count.length > 2 &&
         <div css={comboBox2}>
