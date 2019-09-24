@@ -47,9 +47,9 @@ const pStyle = {
   border: '2px solid black',
   'borderRadius': '5px',
   padding:'10px',
-  'MozBoxShadow':    '3px 3px 5px 6px #ccc',
-  'WebkitBoxShadow': '3px 3px 5px 6px #ccc',
-  'boxShadow':         '3px 3px 5px 6px #ccc'
+  'MozBoxShadow':    '10px 10px 5px #888',
+  'WebkitBoxShadow': '10px 10px 5px #888',
+  'boxShadow':         '10px 10px 5px #888'
 };
 
 const dStyle = {
@@ -58,7 +58,8 @@ const dStyle = {
   'backgroundColor':'#C4C4C4',
   border: '1px solid black',
   'borderRadius': '5px',
-  padding:'5px'
+  padding:'5px',
+  textAlign: 'center'
 };
 
 
