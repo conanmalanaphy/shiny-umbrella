@@ -4,17 +4,16 @@ import { Input,Button } from 'antd';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import { css, jsx } from '@emotion/core'
 import * as _ from 'underscore';
+import '../App.css';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
 const wrapper = css`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 300px 300px 300px;
+  grid-template-columns: 1fr;
   grid-template-areas:
-                      "box1   box2   box3"
-                      "box4 box4 box4";
+                      "box1"
 	background-color: #fff;
   color: #444;
   width:100%;
@@ -35,6 +34,7 @@ const box3 = css`
 
 const box4 = css`
   grid-area: box4;
+  text-align:center;
  padding: 20px;
 `
 const sayHello = function() {
@@ -83,7 +83,8 @@ class ThirdPage extends Component {
     if(hits){    
     return (
       <div>   
-         
+       <div className="bob" css={wrapper}>
+       <div css={box1}> 
       <ul>
         {  hits.map(hit =>
           <li key={hit.id}>
@@ -92,13 +93,18 @@ class ThirdPage extends Component {
           </li>
         )}
       </ul>
-    
+      </div>
+      </div>
      </div>
     );
   }else{
     return(
      <div>
-       wait for the funny stuff
+        <div className="bob" css={wrapper}>
+       <div css={box1} style={{paddingRight:'400px'}}>
+      <div className="lds-css ng-scope"><div className="hundred lds-double-ring"><div></div><div></div><div><div></div></div><div><div></div></div></div></div>
+     </div>
+     </div>
      </div>
     )
   }

@@ -88,11 +88,11 @@ class InitialPage extends Component {
        <div css={box3}><div style={pStyle}> <div style={dStyle}>2019</div></div></div>
        <div css={box4}> list of listo
        <ul>
-<li>New background image</li>
+<li>Fun loading symbol, Rotate</li>
 <li>Colour palette</li>
 <li>Connect to basic online api</li>
 <li>create SQL api from front end masters</li>
-<li>Correct menu image</li>
+<li>better table for the jokes</li>
 
 
        </ul>
