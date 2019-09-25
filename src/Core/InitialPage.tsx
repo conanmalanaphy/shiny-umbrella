@@ -89,11 +89,23 @@ class InitialPage extends Component {
        <div css={box3}><div style={pStyle}> <div style={dStyle}>2019</div></div></div>
        <div css={box4}> list of listo
        <ul>
-<li>Fun loading symbol, Rotate</li>
 <li>Colour palette</li>
-<li>Connect to basic online api</li>
 <li>create SQL api from front end masters</li>
-<li>better table for the jokes</li>
+<li>phone usage</li>
+<li>Correct menu routes</li>
+<li>Tidy file names</li>
+<li>Tidy class names</li>
+<li>remove excess code</li>
+<li>remove extra photo</li>
+<li>remove extra files</li>
+<li>webpack minimize file sizes</li>
+<li> AIzaSyC2Svf92vLLWXn8QjIwZxp3Qf4v9jcrEdI </li>
+<li><h4>Project </h4></li>
+<li>Google maps Api Cycle map between 2 routes</li>
+<li>Option for maps</li>
+<li>Create Npm version for maps</li>
+
+
 
 
        </ul>

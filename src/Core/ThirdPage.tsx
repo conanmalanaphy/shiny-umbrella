@@ -5,15 +5,19 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import { css, jsx } from '@emotion/core'
 import * as _ from 'underscore';
 import '../App.css';
+import {AgGridReact} from 'ag-grid-react';
+
+import 'ag-grid/dist/styles/ag-grid.css';
+import 'ag-grid/dist/styles/ag-theme-fresh.css';
 
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
 const wrapper = css`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns:repeat(3, 1fr);
   grid-template-areas:
-                      "box1"
+                      "box1  box1  box1";
 	background-color: #fff;
   color: #444;
   width:100%;
@@ -60,7 +64,17 @@ const dStyle = {
   'borderRadius': '5px',
   padding:'5px'
 };
-
+const 
+  columnDefs= [
+      {headerName: 'Setup', field: 'name'},
+      {headerName: 'PunchLine', field: 'role'}
+  ],
+  rowData= [
+      {name: 'Niall', role: 'Developer'},
+      {name: 'Eamon', role: 'Manager'},
+      {name: 'Brian', role: 'Musician'},
+      {name: 'Kevin', role: 'Manager'}
+  ];
 
 class ThirdPage extends Component {
   public state:any = [];
@@ -78,24 +92,38 @@ class ThirdPage extends Component {
       );
   }
 
+  onGridReady(params) {
+    console.log(params);
+    //params.api.resizeColumnsToFit();
+    window.agGrid = params;
+
+    // resizes the columns so they fit
+    params.api.sizeColumnsToFit();
+    window.agGrid = params.api;
+  }
+  
   render() {
     const hits  = this.state.data;
     if(hits){    
+      const dat =   hits.map(hit =>{
+       return {name: hit.setup, role: hit.punchline};
+      })
     return (
-      <div>   
-       <div className="bob" css={wrapper}>
+      <div className="bob" css={wrapper}>
        <div css={box1}> 
-      <ul>
-        {  hits.map(hit =>
-          <li key={hit.id}>
-            <h1>{hit.setup}</h1>
-            <h4>{hit.punchline}</h4>
-          </li>
-        )}
-      </ul>
-      </div>
-      </div>
+       <div  style={{ height: '600px', width: '600px'}}>
+<div className="ag-theme-fresh">
+                <AgGridReact
+                onGridReady={this.onGridReady}
+                domLayout="autoHeight"
+                    columnDefs={columnDefs}
+                    rowData={dat}>
+                </AgGridReact>
      </div>
+     </div>
+     </div>
+     </div>
+     
     );
   }else{
     return(

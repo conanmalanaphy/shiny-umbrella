@@ -68,8 +68,8 @@ function App() {
         </div>
         <div css={dashboard}>
         <Route exact path="/" render={() => <InitialPage />} />
-        <Route path="/otherbutton" render={() =>  <SecondPage />} />
-        <Route path="/otherbutton2" render={() => <ThirdPage />} />
+        <Route path="/my-things" render={() =>  <SecondPage />} />
+        <Route path="/learnt" render={() => <ThirdPage />} />
         </div>
         {count.length > 2 &&
         <div css={comboBox2}>
