@@ -1,16 +1,11 @@
-import React from 'react';
-import { Input,Button } from 'antd';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import React from 'react'
+import { Input, Button } from 'antd'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
-const InitialPage: React.FunctionComponent = () =>
-  (
-    <div>      
-         <div className>      
-     test
-     
+const InitialPage: React.FunctionComponent = () => (
+    <div>
+        <div className>test</div>
     </div>
-     
-    </div>
-  );
+)
 
-export default InitialPage;
+export default InitialPage
