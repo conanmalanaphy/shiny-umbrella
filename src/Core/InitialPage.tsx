@@ -1,9 +1,6 @@
 /** @jsx jsx */
-import React, { Component } from 'react'
-import { Input, Button } from 'antd'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
-import * as _ from 'underscore'
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -39,7 +36,7 @@ const box4 = css`
     grid-area: box4;
     padding: 20px;
 `
-const sayHello = function() {}
+
 const pStyle = {
     width: '90%',
     color: 'black',
@@ -59,7 +56,6 @@ const dStyle = {
     border: '1px solid black',
     borderRadius: '5px',
     padding: '5px',
-    textAlign: 'center',
 }
 
 class InitialPage extends Component {
@@ -70,11 +66,13 @@ class InitialPage extends Component {
             data: null,
         }
     }
+    /*
     componentDidMount() {
         fetch('http://www.mocky.io/v2/5d87d3b134000041870a15c0')
             .then(response => response.json())
-            .then(data => (this.state = data))
+            .then(data => (this.setState(data))
     }
+    */
 
     render() {
         return (
@@ -129,7 +127,13 @@ class InitialPage extends Component {
                         </ul>
                     </div>
                 </div>
-                <button onClick={sayHello}>Click me!</button>
+                <button
+                    onClick={function() {
+                        alert('hi')
+                    }}
+                >
+                    Click me!
+                </button>
             </div>
         )
     }

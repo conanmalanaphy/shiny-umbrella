@@ -1,10 +1,8 @@
 /** @jsx jsx */
 import React from 'react'
 import { css, jsx } from '@emotion/core'
-import { Row, Col } from 'antd'
 import Header from './Header'
 import BasicBreadcrumb from './BreadCrumb'
-import HighchartsReact from 'highcharts-react-official'
 import PieChart from '../ChartComponents/PieChart'
 import ColumnChart from '../ChartComponents/ColumnChart'
 import LineChart from '../ChartComponents/LineChart'
@@ -45,7 +43,7 @@ const barChart = css`
 const lineChart = css`
     grid-area: lineChart;
 `
-class Dashboard extends React.Component<HighchartsReact.Props> {
+class Dashboard extends React.Component {
     render() {
         return (
             <div>

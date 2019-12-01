@@ -1,9 +1,6 @@
 /** @jsx jsx */
-import React, { Component } from 'react'
-import { Input, Button } from 'antd'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
-import * as _ from 'underscore'
 import '../App.css'
 import { AgGridReact } from 'ag-grid-react'
 
@@ -25,6 +22,7 @@ const box1 = css`
     padding: 20px;
     grid-area: box1;
 `
+/*
 const box2 = css`
     grid-area: box2;
     display: inline-block;
@@ -61,16 +59,11 @@ const dStyle = {
     borderRadius: '5px',
     padding: '5px',
 }
+*/
 const columnDefs = [
-        { headerName: 'Setup', field: 'name' },
-        { headerName: 'PunchLine', field: 'role' },
-    ],
-    rowData = [
-        { name: 'Niall', role: 'Developer' },
-        { name: 'Eamon', role: 'Manager' },
-        { name: 'Brian', role: 'Musician' },
-        { name: 'Kevin', role: 'Manager' },
-    ]
+    { headerName: 'Setup', field: 'name' },
+    { headerName: 'PunchLine', field: 'role' },
+]
 
 class ThirdPage extends Component {
     public state: any = []
@@ -86,20 +79,20 @@ class ThirdPage extends Component {
             .then(data => this.setState({ data: data }))
     }
 
-    onGridReady(params) {
+    onGridReady(params: any) {
         console.log(params)
         //params.api.resizeColumnsToFit();
-        window.agGrid = params
+        // TODO window.agGrid = params
 
         // resizes the columns so they fit
         params.api.sizeColumnsToFit()
-        window.agGrid = params.api
+        // TODO window.agGrid = params.api
     }
 
     render() {
         const hits = this.state.data
         if (hits) {
-            const dat = hits.map(hit => {
+            const dat = hits.map((hit: any) => {
                 return { name: hit.setup, role: hit.punchline }
             })
             return (

@@ -1,12 +1,10 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
+node_modules
+.cache/
+dist/
+.env
+.DS_Store
+coverage/
+.vscode/
 
 # production
 /build
@@ -17,16 +15,3 @@
 .env.development.local
 .env.test.local
 .env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-/package.json
-/public/index.html
-/src/App.js
-/src/App.test.js
-/src/index.css
-/src/index.js
-/yarn.lock
-/src/App.js
-/src/index.js

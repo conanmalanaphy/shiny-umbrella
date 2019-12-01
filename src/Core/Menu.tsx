@@ -1,9 +1,9 @@
 import React from 'react'
 import { Menu } from 'antd'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../App.css'
 
-const BasicMenu: React.FunctionComponent = (props: any) => (
+const BasicMenu: React.FunctionComponent = () => (
     <div>
         <Menu
             theme="dark"

@@ -1,15 +1,10 @@
 /** @jsx jsx */
-import { Select } from 'antd'
-const { Option } = Select
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { css, jsx } from '@emotion/core'
 import './App.css'
 import BasicMenu from './Core/Menu'
-import Dashboard from './Core/Dashboard'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import InitialComboBox from './Core/InitialComboBox'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import ComboBox from './Core/ComboBox'
-import axios from 'axios'
 import InitialPage from './Core/InitialPage'
 import SecondPage from './Core/SecondPage'
 import ThirdPage from './Core/ThirdPage'
@@ -35,28 +30,18 @@ const dashboard = css`
     grid-area: dashboard;
     display: inline-block;
 `
-const comboBox = css`
-    grid-area: comboBox;
-`
 const comboBox2 = css`
     grid-area: comboBox2;
 `
 
 function App() {
-    const [count, setCount] = useState([
+    const [count] = useState([
         {
             id: 1,
             name: 'Leanne Graham',
         },
     ])
-    const apiCall = () => {
-        axios({
-            method: 'get',
-            url: 'https://jsonplaceholder.typicode.com/users',
-        }).then(function(response) {
-            setCount(response.data)
-        })
-    }
+
     return (
         <Router>
             <div>

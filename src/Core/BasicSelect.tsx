@@ -2,11 +2,13 @@ import React from 'react'
 import { Select } from 'antd'
 const { Option } = Select
 
-interface selectOptions {
+interface SelectOptions {
     multiple: string
 }
 
-const BasicSelect: React.FunctionComponent<selectOptions> = props => (
+const BasicSelect: React.FunctionComponent<SelectOptions> = (
+    props: SelectOptions
+) => (
     <div>
         <Select
             mode="multiple"

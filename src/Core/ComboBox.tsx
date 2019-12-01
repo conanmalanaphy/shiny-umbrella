@@ -1,23 +1,21 @@
-/** @jsx jsx */
+import React from 'react'
 import { Select } from 'antd'
 import 'antd/dist/antd.css'
-import { css, jsx } from '@emotion/core'
-import { render } from 'react-dom'
-import { Fragment } from 'react'
 const { Option } = Select
-interface map {
+
+interface Map {
     id: number
     name: string
 }
-interface selectOptions {
+interface SelectOptions {
     multiple: string
-    value: map[]
+    value: Map[]
 }
 
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
-const dotGreen = css`
+/*const dotGreen = css`
     height: 10px;
     width: 10px;
     background-color: green;
@@ -37,9 +35,9 @@ const dotRed = css`
     background-color: red;
     border-radius: 50%;
     display: inline-block;
-`
-const ComboBox: React.FunctionComponent<selectOptions> = (props: any) => {
-    const names = props.value.map((x: map) => ({ id: x.id, name: x.name }))
+` */
+const ComboBox: React.FunctionComponent<SelectOptions> = (props: any) => {
+    const names = props.value.map((x: Map) => ({ id: x.id, name: x.name }))
     console.log(names)
     const children = []
     for (let i = 0; i < names.length; i++) {

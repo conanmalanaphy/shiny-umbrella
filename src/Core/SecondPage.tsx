@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import React from 'react'
 import { Input, Button } from 'antd'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import { css, jsx } from '@emotion/core'
 // fun
 /// https://codepen.io/yoannhel/pen/sJpDj
@@ -29,20 +27,7 @@ const elegantshadow = css`
         -24px 48px 1px #d8d6d5, -25px 50px 1px #dbdad9, -26px 52px 1px #dfdddc,
         -27px 54px 1px #e2e0df, -28px 56px 1px #e4e3e2;
 `
-const dotOrange = css`
-    height: 10px;
-    width: 10px;
-    background-color: orange;
-    border-radius: 50%;
-    display: inline-block;
-`
-const dotRed = css`
-    height: 10px;
-    width: 10px;
-    background-color: red;
-    border-radius: 50%;
-`
-const ComboBox: React.FunctionComponent = (props: any) => {
+const ComboBox: React.FunctionComponent = () => {
     return (
         <div>
             <div css={elegantshadow}>sdsds</div>
@@ -54,12 +39,12 @@ const ComboBox: React.FunctionComponent = (props: any) => {
 const InitialPage: React.FunctionComponent = () => (
     <div>
         <ComboBox />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed
-        dictum lacus. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In accumsan tellus purus, id sodales
-        ex consectetur et. Nulla congue laoreet ligula vitae lacinia. Integer
-        iaculis sem ut est sagittis, eu vulputate mi venenatis. Morbi mauris
-        magna, scelerisque et vehicula sit amet, scelerisque et neque. Ut
+        Conans Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        sed dictum lacus. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. In accumsan tellus purus, id
+        sodales ex consectetur et. Nulla congue laoreet ligula vitae lacinia.
+        Integer iaculis sem ut est sagittis, eu vulputate mi venenatis. Morbi
+        mauris magna, scelerisque et vehicula sit amet, scelerisque et neque. Ut
         gravida ac massa at fringilla. Aenean maximus ultrices lectus ac
         sollicitudin. Nullam nisi tortor, hendrerit vitae sagittis eu, gravida
         eu est. Cras ullamcorper augue sed malesuada vestibulum. In fringilla
