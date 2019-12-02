@@ -65,14 +65,34 @@ class InitialPage extends Component {
         this.state = {
             data: null,
         }
+        this.getData = this.getData.bind(this)
     }
-    /*
+
     componentDidMount() {
-        fetch('http://www.mocky.io/v2/5d87d3b134000041870a15c0')
-            .then(response => response.json())
-            .then(data => (this.setState(data))
+        fetch('http://www.omdbapi.com/?t=rick+and+morty&apikey=c18b03c2')
+            .then(
+                response => response.json()
+                //ttioo
+            )
+            .then(
+                data => this.setState(data)
+                // test
+            )
     }
-    */
+
+    getData() {
+        var name = (document.getElementById('SearchTerm') as HTMLInputElement)
+            .value
+        fetch('http://www.omdbapi.com/?t=' + name + '&apikey=c18b03c2')
+            .then(
+                response => response.json()
+                //ttioo
+            )
+            .then(
+                data => this.setState(data)
+                // test
+            )
+    }
 
     render() {
         return (
@@ -102,38 +122,22 @@ class InitialPage extends Component {
                     </div>
                     <div css={box4}>
                         {' '}
-                        list of listo
-                        <ul>
-                            <li>Colour palette</li>
-                            <li>create SQL api from front end masters</li>
-                            <li>phone usage</li>
-                            <li>Correct menu routes</li>
-                            <li>Tidy file names</li>
-                            <li>Tidy class names</li>
-                            <li>remove excess code</li>
-                            <li>remove extra photo</li>
-                            <li>remove extra files</li>
-                            <li>webpack minimize file sizes</li>
-                            <li> AIzaSyC2Svf92vLLWXn8QjIwZxp3Qf4v9jcrEdI </li>
-                            <li>
-                                <h4>Project </h4>
-                            </li>
-                            <li>Google maps Api Cycle map between 2 routes</li>
-                            <li>Option for maps</li>
-                            <li>Create Npm version for maps</li>
-                            <li>puppeteer</li>
-                            <li>HighCharts</li>
-                            <li>Backbone</li>
-                        </ul>
+                        <input type="text" name="fname" id="SearchTerm" />
+                        <button onClick={this.getData}>Search</button>
+                        <h1>{this.state.Title}</h1>
+                        <div
+                            style={{
+                                height: '200px',
+                                width: '400px',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'auto',
+                                background: 'url(' + this.state.Poster + ')',
+                            }}
+                        ></div>
+                        <h2>{this.state.imdbRating}</h2>
+                        <h2>{this.state.Plot}</h2>
                     </div>
                 </div>
-                <button
-                    onClick={function() {
-                        alert('hi')
-                    }}
-                >
-                    Click me!
-                </button>
             </div>
         )
     }
