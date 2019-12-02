@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
-
+import _ from 'lodash'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -68,18 +68,6 @@ class InitialPage extends Component {
         this.getData = this.getData.bind(this)
     }
 
-    componentDidMount() {
-        fetch('http://www.omdbapi.com/?t=rick+and+morty&apikey=c18b03c2')
-            .then(
-                response => response.json()
-                //ttioo
-            )
-            .then(
-                data => this.setState(data)
-                // test
-            )
-    }
-
     getData() {
         var name = (document.getElementById('SearchTerm') as HTMLInputElement)
             .value
@@ -120,22 +108,42 @@ class InitialPage extends Component {
                             <div style={dStyle}>2019</div>
                         </div>
                     </div>
+
                     <div css={box4}>
                         {' '}
-                        <input type="text" name="fname" id="SearchTerm" />
+                        <input
+                            type="text"
+                            name="fname"
+                            id="SearchTerm"
+                            placeholder="Enter a film name"
+                        />
                         <button onClick={this.getData}>Search</button>
-                        <h1>{this.state.Title}</h1>
-                        <div
-                            style={{
-                                height: '200px',
-                                width: '400px',
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'auto',
-                                background: 'url(' + this.state.Poster + ')',
-                            }}
-                        ></div>
-                        <h2>{this.state.imdbRating}</h2>
-                        <h2>{this.state.Plot}</h2>
+                        {this.state.Response == 'True' ? (
+                            <div>
+                                <h1>{this.state.Title}</h1>
+                                <div
+                                    style={{
+                                        height: '100%',
+                                        width: '100%',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: 'auto',
+                                        background:
+                                            'url(' + this.state.Poster + ')',
+                                    }}
+                                ></div>
+                                <h2>{this.state.imdbRating}</h2>
+                                <p>{this.state.Plot}</p>
+                            </div>
+                        ) : (
+                            <div css={box4}>
+                                {' '}
+                                {this.state.Response == 'False' ? (
+                                    <div>Plese enter a correct film</div>
+                                ) : (
+                                    <div>Please enter a show/film name</div>
+                                )}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
