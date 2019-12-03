@@ -11,7 +11,7 @@ const wrapper = css`
     grid-template-rows: 300px 300px 300px;
     grid-template-areas:
         'box1   box2   box3'
-        'box4 box4 box4';
+        '... box5 ...';
     background-color: #fff;
     color: #444;
     width: 100%;
@@ -29,6 +29,10 @@ const box2 = css`
 `
 const box3 = css`
     grid-area: box3;
+    padding: 20px;
+`
+const box5 = css`
+    grid-area: box5;
     padding: 20px;
 `
 
@@ -103,7 +107,9 @@ class InitialPage extends Component {
                             <div style={dStyle}>2019</div>
                         </div>
                     </div>
-                    <SearchBox />
+                    <div css={box5}>
+                        <SearchBox />
+                    </div>
                 </div>
             </div>
         )

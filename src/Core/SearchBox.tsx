@@ -17,6 +17,13 @@ class SearchBox extends Component {
             data: null,
         }
         this.getData = this.getData.bind(this)
+        this._handleKeyDown = this._handleKeyDown.bind(this)
+    }
+
+    _handleKeyDown = (e: any) => {
+        if (e.key === 'Enter') {
+            this.getData()
+        }
     }
 
     getData() {
@@ -43,6 +50,7 @@ class SearchBox extends Component {
                         name="fname"
                         id="SearchTerm"
                         placeholder="Enter a film name"
+                        onKeyDown={this._handleKeyDown}
                     />
                     <button onClick={this.getData}>Search</button>
                     {this.state.Response == 'True' ? (
