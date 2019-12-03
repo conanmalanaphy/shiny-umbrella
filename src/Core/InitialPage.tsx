@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
-import _ from 'lodash'
+import SearchBox from './SearchBox'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -11,7 +11,7 @@ const wrapper = css`
     grid-template-rows: 300px 300px 300px;
     grid-template-areas:
         'box1   box2   box3'
-        'box4 box4 box4';
+        '... box5 ...';
     background-color: #fff;
     color: #444;
     width: 100%;
@@ -31,9 +31,8 @@ const box3 = css`
     grid-area: box3;
     padding: 20px;
 `
-
-const box4 = css`
-    grid-area: box4;
+const box5 = css`
+    grid-area: box5;
     padding: 20px;
 `
 
@@ -108,42 +107,8 @@ class InitialPage extends Component {
                             <div style={dStyle}>2019</div>
                         </div>
                     </div>
-
-                    <div css={box4}>
-                        {' '}
-                        <input
-                            type="text"
-                            name="fname"
-                            id="SearchTerm"
-                            placeholder="Enter a film name"
-                        />
-                        <button onClick={this.getData}>Search</button>
-                        {this.state.Response == 'True' ? (
-                            <div>
-                                <h1>{this.state.Title}</h1>
-                                <div
-                                    style={{
-                                        height: '100%',
-                                        width: '100%',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: 'auto',
-                                        background:
-                                            'url(' + this.state.Poster + ')',
-                                    }}
-                                ></div>
-                                <h2>{this.state.imdbRating}</h2>
-                                <p>{this.state.Plot}</p>
-                            </div>
-                        ) : (
-                            <div css={box4}>
-                                {' '}
-                                {this.state.Response == 'False' ? (
-                                    <div>Plese enter a correct film</div>
-                                ) : (
-                                    <div>Please enter a show/film name</div>
-                                )}
-                            </div>
-                        )}
+                    <div css={box5}>
+                        <SearchBox />
                     </div>
                 </div>
             </div>
