@@ -1,6 +1,8 @@
 /** @jsx jsx */
-import { Component } from 'react'
-import { css, jsx } from '@emotion/core'
+import { Component } from 'React'
+import { css, jsx } from '@Emotion/core'
+import { Carousel } from 'antd'
+import 'antd/dist/antd.css'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -58,14 +60,33 @@ class SearchBox extends Component {
                             <h1>{this.state.Title}</h1>
                             <div
                                 style={{
-                                    height: '100%',
-                                    width: '100%',
+                                    height: '400px',
+                                    width: '300px',
+                                    objectFit: 'cover',
                                     backgroundRepeat: 'no-repeat',
-                                    backgroundSize: 'auto',
                                     background:
                                         'url(' + this.state.Poster + ')',
+                                    textAlign: 'center',
                                 }}
                             ></div>
+                            <div
+                                style={{
+                                    height: '400px',
+                                    width: '300px',
+                                }}
+                            >
+                                <Carousel>
+                                    <div>
+                                        <h3>{this.state.Ratings[0].Source}</h3>
+                                    </div>
+                                    <div>
+                                        <h3>{this.state.Ratings[1].Source}</h3>
+                                    </div>
+                                    <div>
+                                        <h3>{this.state.Ratings[2].Source}</h3>
+                                    </div>
+                                </Carousel>
+                            </div>
                             <h2>{this.state.imdbRating}</h2>
                             <p>{this.state.Plot}</p>
                         </div>

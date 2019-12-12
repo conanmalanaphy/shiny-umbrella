@@ -1,6 +1,6 @@
-import React from 'react'
-import * as Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+import React from 'React'
+import * as Highcharts from 'Highcharts'
+import HighchartsReact from 'Highcharts-react-official'
 
 const dataSeries: any = [
     {

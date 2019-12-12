@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import React from 'react'
-import { css, jsx } from '@emotion/core'
+import React from 'React'
+import { css, jsx } from '@Emotion/core'
 import Header from './Header'
 import BasicBreadcrumb from './BreadCrumb'
 import PieChart from '../ChartComponents/PieChart'

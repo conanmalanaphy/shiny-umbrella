@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'React'
 import { Modal } from 'antd'
 
 class PortfolioModal extends React.Component {

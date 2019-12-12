@@ -1,6 +1,6 @@
-import React from 'react'
-import * as Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+import React from 'React'
+import * as Highcharts from 'Highcharts'
+import HighchartsReact from 'Highcharts-react-official'
 
 const dataSeries: any = [
     { name: '#0061a2', y: 161, color: '#0061a2', sliced: true, selected: true },
@@ -33,7 +33,7 @@ const options: Highcharts.Options = {
     series: [
         {
             name: 'Consumed',
-            colorByPoint: true,
+            // colorByPoint: true,
             data: dataSeries,
             type: 'pie',
         },

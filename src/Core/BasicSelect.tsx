@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'React'
 import { Select } from 'antd'
 const { Option } = Select
 

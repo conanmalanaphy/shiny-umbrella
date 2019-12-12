@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { useState } from 'react'
-import { css, jsx } from '@emotion/core'
+import { css, jsx } from '@Emotion/core'
 import './App.css'
 import BasicMenu from './Core/Menu'
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'React-router-dom'
 import ComboBox from './Core/ComboBox'
 import InitialPage from './Core/InitialPage'
 import SecondPage from './Core/SecondPage'
@@ -35,12 +34,7 @@ const comboBox2 = css`
 `
 
 function App() {
-    const [count] = useState([
-        {
-            id: 1,
-            name: 'Leanne Graham',
-        },
-    ])
+    const count = 5
 
     return (
         <Router>

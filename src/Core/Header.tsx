@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'React'
 import './Header.css'
 import { Button, Divider, DatePicker } from 'antd'
 import moment from 'moment'

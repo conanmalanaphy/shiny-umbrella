@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'React'
 import { Menu } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link } from 'React-router-dom'
 import '../App.css'
 
 const BasicMenu: React.FunctionComponent = () => (

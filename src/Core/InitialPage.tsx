@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { Component } from 'react'
-import { css, jsx } from '@emotion/core'
+import { Component } from 'React'
+import { css, jsx } from '@Emotion/core'
 import SearchBox from './SearchBox'
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -71,14 +71,8 @@ class InitialPage extends Component {
         var name = (document.getElementById('SearchTerm') as HTMLInputElement)
             .value
         fetch('http://www.omdbapi.com/?t=' + name + '&apikey=c18b03c2')
-            .then(
-                response => response.json()
-                //ttioo
-            )
-            .then(
-                data => this.setState(data)
-                // test
-            )
+            .then(response => response.json())
+            .then(data => this.setState(data))
     }
 
     render() {

@@ -1,11 +1,13 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var tsImportPluginFactory = require('ts-import-plugin')
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/index.tsx',
     output: {
-        path: '/dist',
+        path: __dirname + '/dist',
         filename: 'bundle.js',
         publicPath: '/',
     },
@@ -77,6 +79,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled',
+            generateStatsFile: true,
+            statsOptions: { source: false },
         }),
     ],
 }

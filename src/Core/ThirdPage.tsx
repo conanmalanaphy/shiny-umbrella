@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Component } from 'react'
-import { css, jsx } from '@emotion/core'
+import { Component } from 'React'
+import { css, jsx } from '@Emotion/core'
 import '../App.css'
-import { AgGridReact } from 'ag-grid-react'
+//import { AgGridReact } from 'ag-grid-react'
 
 import 'ag-grid/dist/styles/ag-grid.css'
 import 'ag-grid/dist/styles/ag-theme-fresh.css'
@@ -59,12 +59,12 @@ const dStyle = {
     borderRadius: '5px',
     padding: '5px',
 }
-*/
+
 const columnDefs = [
     { headerName: 'Setup', field: 'name' },
     { headerName: 'PunchLine', field: 'role' },
 ]
-
+*/
 class ThirdPage extends Component {
     public state: any = []
     constructor(props: any) {
@@ -92,21 +92,15 @@ class ThirdPage extends Component {
     render() {
         const hits = this.state.data
         if (hits) {
+            /*
             const dat = hits.map((hit: any) => {
                 return { name: hit.setup, role: hit.punchline }
-            })
+            }) */
             return (
                 <div className="bob" css={wrapper}>
                     <div css={box1}>
                         <div style={{ height: '600px', width: '600px' }}>
-                            <div className="ag-theme-fresh">
-                                <AgGridReact
-                                    onGridReady={this.onGridReady}
-                                    domLayout="autoHeight"
-                                    columnDefs={columnDefs}
-                                    rowData={dat}
-                                ></AgGridReact>
-                            </div>
+                            <div className="ag-theme-fresh"></div>
                         </div>
                     </div>
                 </div>

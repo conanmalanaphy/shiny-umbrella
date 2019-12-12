@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'React'
 
 const InitialPage: React.FunctionComponent = () => (
     <div>
