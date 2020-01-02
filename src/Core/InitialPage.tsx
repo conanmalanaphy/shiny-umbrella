@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { Component } from 'React'
 import { css, jsx } from '@Emotion/core'
-import SearchBox from './SearchBox'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -82,27 +81,37 @@ class InitialPage extends Component {
 
                 <div className="bob" css={wrapper}>
                     <div css={box1}>
-                        {' '}
                         <div style={pStyle}>
-                            {' '}
-                            <div style={dStyle}>Conan</div>
+                            <div style={dStyle}>
+                                Whats the Score- Python Project
+                            </div>
                         </div>
                     </div>
                     <div css={box2}>
                         {' '}
                         <div style={pStyle}>
                             {' '}
-                            <div style={dStyle}>Malanaphy</div>
+                            <div style={dStyle}>
+                                Whats the ratings - Restful Api Project
+                            </div>
                         </div>
                     </div>
                     <div css={box3}>
                         <div style={pStyle}>
                             {' '}
-                            <div style={dStyle}>2019</div>
+                            <div style={dStyle}>
+                                Whats the plan - React Project
+                            </div>
                         </div>
                     </div>
+
                     <div css={box5}>
-                        <SearchBox />
+                        Downloadable CV and shizz -- who you are where you went
+                        to school, hobbies -- what you do at the moment,
+                        pictures of it, code snippets dates , -- how to get in
+                        touch with you. React - Backbone - HTML - CSS - NodeJS -
+                        Python3 - Anything extra? Add readme to my projects to
+                        give context GitHub Link - LinkedIn Photo of myself
                     </div>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { Input, Button } from 'antd'
 import { css, jsx } from '@Emotion/core'
+import SearchBox from './SearchBox'
+
 // fun
 /// https://codepen.io/yoannhel/pen/sJpDj
 
@@ -75,6 +77,7 @@ const InitialPage: React.FunctionComponent = () => (
         convallis ante sagittis ut. Vivamus id magna elit.
         <Input placeholder="Basic usage" />
         <Button type="primary">Primary</Button>
+        <SearchBox />
     </div>
 )
 
