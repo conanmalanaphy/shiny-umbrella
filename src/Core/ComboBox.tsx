@@ -1,6 +1,7 @@
 import React from 'React'
-import { Select } from 'antd'
-import 'antd/dist/antd.css'
+import Select from 'antd/lib/select'
+import 'antd/lib/select/style/index.css'
+
 const { Option } = Select
 
 interface Map {
@@ -36,9 +37,7 @@ const dotRed = css`
     border-radius: 50%;
     display: inline-block;
 ` */
-const ComboBox: React.FunctionComponent<any> = (
-    props: any
-) => {
+const ComboBox: React.FunctionComponent<any> = (props: any) => {
     const names = props.value.map((x: Map) => ({ id: x.id, name: x.name }))
     console.log(names)
     const children = []

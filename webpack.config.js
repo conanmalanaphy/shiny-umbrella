@@ -5,10 +5,15 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx',
+        secondPage: './src/Core/SecondPage.tsx',
+        thirdPage: './src/Core/ThirdPage.tsx',
+        initialPage: './src/Core/InitialPage.tsx',
+    },
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/',
     },
     devtool: 'inline-source-map',
@@ -86,4 +91,9 @@ module.exports = {
             statsOptions: { source: false },
         }),
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
 }

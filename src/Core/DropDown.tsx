@@ -1,5 +1,8 @@
 import React from 'React'
-import { Menu, Dropdown } from 'antd'
+import Menu from 'antd/lib/menu'
+import Dropdown from 'antd/lib/dropdown'
+import 'antd/lib/menu/style/index.css'
+import 'antd/lib/dropdown/style/index.css'
 
 const menu = (
     <Menu>

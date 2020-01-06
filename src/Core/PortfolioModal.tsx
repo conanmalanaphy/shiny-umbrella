@@ -1,5 +1,6 @@
 import React from 'React'
-import { Modal } from 'antd'
+import Modal from 'antd/lib/modal'
+import 'antd/lib/modal/style/index.css'
 
 class PortfolioModal extends React.Component {
     state = { visible: false }
@@ -34,9 +35,7 @@ class PortfolioModal extends React.Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
-                    <p>
-                        Portfolio A <i className="material-icons">home</i>
-                    </p>
+                    <p>portfolio A</p>
                     <p>Portfolio B</p>
                     <p>Portfolio C</p>
                 </Modal>

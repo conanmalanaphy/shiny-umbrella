@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { Component } from 'React'
 import { css, jsx } from '@Emotion/core'
-import { Carousel } from 'antd'
-import 'antd/dist/antd.css'
+import Carousel from 'antd/lib/carousel'
+import 'antd/lib/carousel/style/index.css'
+
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////

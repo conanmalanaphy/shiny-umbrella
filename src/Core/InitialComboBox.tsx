@@ -1,4 +1,6 @@
-import { Select } from 'antd'
+import Select from 'antd/lib/select'
+import 'antd/lib/select/style/index.css'
+
 import React from 'React'
 
 const { Option } = Select

@@ -1,5 +1,7 @@
 import React from 'React'
-import { Menu } from 'antd'
+import Menu from 'antd/lib/menu'
+import 'antd/lib/menu/style/index.css'
+
 import { Link } from 'React-router-dom'
 import '../App.css'
 

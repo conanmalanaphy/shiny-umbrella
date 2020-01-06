@@ -1,6 +1,11 @@
 import React from 'React'
 import './Header.css'
-import { Button, Divider, DatePicker } from 'antd'
+import Button from 'antd/lib/button'
+import Divider from 'antd/lib/divider'
+import DatePicker from 'antd/lib/datePicker'
+import 'antd/lib/button/style/index.css'
+import 'antd/lib/divider/style/index.css'
+
 import moment from 'moment'
 import ComboBox from './ComboBox'
 import DropDown from './DropDown'

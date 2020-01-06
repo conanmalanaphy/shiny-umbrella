@@ -1,5 +1,10 @@
 /** @jsx jsx */
-import { Input, Button } from 'antd'
+import Input from 'antd/lib/input'
+import Button from 'antd/lib/button'
+
+import 'antd/lib/input/style/index.css'
+import 'antd/lib/button/style/index.css'
+
 import { css, jsx } from '@Emotion/core'
 import SearchBox from './SearchBox'
 

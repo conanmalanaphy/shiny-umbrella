@@ -34,7 +34,7 @@
     },
     "scripts": {
         "format": "prettier \"src/**/*.{js,ts,tsx,jsx}\" --write",
-        "webpack": "webpack",
+        "webpack": "webpack --production",
         "lint": "eslint \"src/**/*.{js,ts,tsx,jsx}\" --quiet",
         "build": "node scripts/build.js",
         "test": "node scripts/test.js",

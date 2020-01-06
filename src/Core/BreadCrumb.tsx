@@ -1,6 +1,6 @@
 import React from 'React'
-
-import { Breadcrumb } from 'antd'
+import Breadcrumb from 'antd/lib/breadcrumb'
+import 'antd/lib/breadcrumb/style/index.css'
 
 const BasicBreadcrumb: React.FunctionComponent = () => (
     <div>

@@ -1,5 +1,8 @@
 import React from 'React'
-import { Select } from 'antd'
+import Select from 'antd/lib/select'
+
+import 'antd/lib/select/style/index.css'
+
 const { Option } = Select
 
 interface SelectOptions {
