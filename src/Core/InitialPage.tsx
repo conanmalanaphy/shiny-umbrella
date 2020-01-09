@@ -106,12 +106,18 @@ class InitialPage extends Component {
                     </div>
 
                     <div css={box5}>
-                        Downloadable CV and shizz -- who you are where you went
-                        to school, hobbies -- what you do at the moment,
-                        pictures of it, code snippets dates , -- how to get in
-                        touch with you. React - Backbone - HTML - CSS - NodeJS -
-                        Python3 - Anything extra? Add readme to my projects to
-                        give context GitHub Link - LinkedIn Photo of myself
+                        <a
+                            href="./Conan_Malanaphy_CV.pdf"
+                            download="Conan_Malanaphy_CV"
+                        >
+                            Download My CV
+                        </a>
+                        -- who you are where you went to school, hobbies -- what
+                        you do at the moment, pictures of it, code snippets
+                        dates , -- how to get in touch with you. React -
+                        Backbone - HTML - CSS - NodeJS - Python3 - Anything
+                        extra? Add readme to my projects to give context GitHub
+                        Link - LinkedIn Photo of myself
                     </div>
                 </div>
             </div>
