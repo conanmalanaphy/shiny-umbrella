@@ -3,10 +3,9 @@ import { css, jsx } from '@Emotion/core'
 import './App.css'
 import BasicMenu from './Core/Menu'
 import { Route, BrowserRouter as Router } from 'React-router-dom'
-import ComboBox from './Core/ComboBox'
 import InitialPage from './Core/InitialPage'
-import SecondPage from './Core/SecondPage'
-import ThirdPage from './Core/ThirdPage'
+import WhatsTheRating from './Core/WhatsTheRating'
+import WhatsThePlan from './Core/WhatsThePlan'
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -29,13 +28,8 @@ const dashboard = css`
     grid-area: dashboard;
     display: inline-block;
 `
-const comboBox2 = css`
-    grid-area: comboBox2;
-`
 
 function App() {
-    const count = 5
-
     return (
         <Router>
             <div>
@@ -46,16 +40,14 @@ function App() {
                     <div css={dashboard}>
                         <Route exact path="/" render={() => <InitialPage />} />
                         <Route
-                            path="/my-things"
-                            render={() => <SecondPage />}
+                            path="/WhatsTheRating"
+                            render={() => <WhatsTheRating />}
                         />
-                        <Route path="/learnt" render={() => <ThirdPage />} />
+                        <Route
+                            path="/WhatsThePlan"
+                            render={() => <WhatsThePlan />}
+                        />
                     </div>
-                    {count.length > 2 && (
-                        <div css={comboBox2}>
-                            <ComboBox multiple="default" value={count} />
-                        </div>
-                    )}
                 </div>
             </div>
         </Router>
