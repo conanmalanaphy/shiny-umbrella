@@ -2,16 +2,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var tsImportPluginFactory = require('ts-import-plugin')
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
-
+var CompressionPlugin = require('compression-webpack-plugin')
+var webpack = require('webpack')
 module.exports = {
     mode: 'production',
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx',
+        WhatsTheRating: './src/Core/WhatsTheRating.tsx',
+        WhatsThePlan: './src/Core/WhatsThePlan.tsx',
+        InitialPage: './src/Core/InitialPage.tsx',
+    },
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/',
     },
-    devtool: 'inline-source-map',
+    devtool: '',
     devServer: {
         publicPath: '/',
         contentBase: './dist',
@@ -85,5 +91,24 @@ module.exports = {
             generateStatsFile: true,
             statsOptions: { source: false },
         }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production'),
+            },
+        }),
+        new CompressionPlugin({
+            filename: '[path].br[query]',
+            algorithm: 'brotliCompress',
+            test: /\.(js|css|html|svg|tsx|ts)$/,
+            compressionOptions: { level: 11 },
+            threshold: 10240,
+            minRatio: 0.8,
+            deleteOriginalAssets: false,
+        }),
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
 }

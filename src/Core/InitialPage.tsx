@@ -6,33 +6,36 @@ import { css, jsx } from '@emotion/core'
 /////////////////////////////////////
 const wrapper = css`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px 300px 300px;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 600px 200px 200px 200px;
     grid-template-areas:
-        'box1   box2   box3'
-        '... box5 ...';
+        '... aboutMyself ...'
+        '... whatsTheRating ...'
+        '... whatsTheScore ...'
+        '... whatsThePlan ...';
     background-color: #fff;
     color: #444;
     width: 100%;
 `
 
-const box1 = css`
+const whatsTheRating = css`
     padding: 20px;
-    grid-area: box1;
+    grid-area: whatsTheRating;
 `
 
-const box2 = css`
-    grid-area: box2;
+const whatsThePlan = css`
+    grid-area: whatsThePlan;
     display: inline-block;
     padding: 20px;
 `
-const box3 = css`
-    grid-area: box3;
+const whatsTheScore = css`
+    grid-area: whatsTheScore;
     padding: 20px;
 `
-const box5 = css`
-    grid-area: box5;
+const aboutMyself = css`
+    grid-area: aboutMyself;
     padding: 20px;
+    font-size: 29px;
 `
 
 const pStyle = {
@@ -48,7 +51,7 @@ const pStyle = {
 }
 
 const dStyle = {
-    width: '100%',
+    width: 'auto',
     color: 'black',
     backgroundColor: '#C4C4C4',
     border: '1px solid black',
@@ -63,61 +66,79 @@ class InitialPage extends Component {
         this.state = {
             data: null,
         }
-        this.getData = this.getData.bind(this)
     }
-
-    getData() {
-        var name = (document.getElementById('SearchTerm') as HTMLInputElement)
-            .value
-        fetch('http://www.omdbapi.com/?t=' + name + '&apikey=c18b03c2')
-            .then(response => response.json())
-            .then(data => this.setState(data))
-    }
-
     render() {
         return (
             <div>
                 <div className="parallax"></div>
 
-                <div className="bob" css={wrapper}>
-                    <div css={box1}>
+                <div css={wrapper}>
+                    <div css={aboutMyself}>
+                        <div style={{ textAlign: 'center' }}>
+                            <h3> About</h3>
+                            <p>
+                                I am Conan Malanaphy, a Front-End Developer
+                                based in London. I am primarily focused on
+                                website and interface development for web
+                                applications but I love taking on any good front
+                                end dev challenge. Currently working on a react
+                                website for asset management. I have projects
+                                below that show the different areas I know.
+                            </p>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="/conan_malanaphy_cv.pdf"
+                            >
+                                My CV
+                            </a>
+                        </div>
+                        <p style={{ textAlign: 'center' }}>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
+                            >
+                                Linked in
+                            </a>
+                        </p>
+                        <p style={{ textAlign: 'center' }}>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://github.com/conanmalanaphy"
+                            >
+                                GitHub
+                            </a>
+                        </p>
+                    </div>
+                    <div css={whatsTheRating}>
                         <div style={pStyle}>
+                            {' '}
                             <div style={dStyle}>
-                                Whats the Score- Python Project
+                                Whats the ratings - Restful Api Project Image +
+                                what its about React image
                             </div>
                         </div>
                     </div>
-                    <div css={box2}>
+                    <div css={whatsTheScore}>
                         {' '}
                         <div style={pStyle}>
                             {' '}
                             <div style={dStyle}>
-                                Whats the ratings - Restful Api Project
+                                Whats the Score - Python project Image + what
+                                its about
                             </div>
                         </div>
                     </div>
-                    <div css={box3}>
+                    <div css={whatsThePlan}>
                         <div style={pStyle}>
                             {' '}
                             <div style={dStyle}>
-                                Whats the plan - React Project
+                                Whats the plan - React Project Image + what its
+                                about
                             </div>
                         </div>
-                    </div>
-
-                    <div css={box5}>
-                        <a
-                            href="./Conan_Malanaphy_CV.pdf"
-                            download="Conan_Malanaphy_CV"
-                        >
-                            Download My CV
-                        </a>
-                        -- who you are where you went to school, hobbies -- what
-                        you do at the moment, pictures of it, code snippets
-                        dates , -- how to get in touch with you. React -
-                        Backbone - HTML - CSS - NodeJS - Python3 - Anything
-                        extra? Add readme to my projects to give context GitHub
-                        Link - LinkedIn Photo of myself
                     </div>
                 </div>
             </div>
