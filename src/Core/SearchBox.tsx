@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { Component } from 'React'
-import { css, jsx } from '@Emotion/core'
+import { Component } from 'react'
+import { css, jsx } from '@emotion/core'
 import Carousel from 'antd/lib/carousel'
 import Input from 'antd/lib/input'
 import Button from 'antd/lib/button'
