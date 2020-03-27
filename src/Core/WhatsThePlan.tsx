@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from '@Emotion/core'
+import { css, jsx } from '@emotion/core'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
