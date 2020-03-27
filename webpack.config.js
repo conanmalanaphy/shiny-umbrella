@@ -85,6 +85,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+            favicon: './src/favicon.ico',
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'disabled',
