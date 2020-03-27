@@ -2,7 +2,7 @@
 import { css, jsx } from '@emotion/core'
 import './App.css'
 import BasicMenu from './Core/Menu'
-import { Route, BrowserRouter as Router } from 'React-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import ComboBox from './Core/ComboBox'
 import InitialPage from './Core/InitialPage'
 import SecondPage from './Core/SecondPage'
