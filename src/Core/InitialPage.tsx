@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Component } from 'react'
-import { css, jsx } from '@Emotion/core'
+import { css, jsx } from '@emotion/core'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////

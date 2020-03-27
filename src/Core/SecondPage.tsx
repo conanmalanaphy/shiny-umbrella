@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Input, Button } from 'antd'
-import { css, jsx } from '@Emotion/core'
+import { css, jsx } from '@emotion/core'
 import SearchBox from './SearchBox'
 
 // fun

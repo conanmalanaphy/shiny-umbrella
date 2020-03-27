@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { Component } from 'React'
-import { css, jsx } from '@Emotion/core'
+import { Component } from 'react'
+import { css, jsx } from '@emotion/core'
 import '../App.css'
 //import { AgGridReact } from 'ag-grid-react'
 
