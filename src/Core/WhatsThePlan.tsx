@@ -16,7 +16,7 @@ import 'antd/lib/modal/style/index.css'
 const wrapper = css`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 100px 1000px;
+    grid-template-rows: 100px 500px;
     grid-template-areas:
         '... helpfulinfo helpfulinfo...'
         'stuff stuff stuff stuff';
@@ -29,30 +29,91 @@ const wrapper = css`
 const helpfulinfo = css`
     padding: 20px;
     grid-area: helpfulinfo;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100px;
+    grid-template-areas: '... create clear...';
+`
+const create = css`
+    padding: 20px;
+    grid-area: create;
+`
+const clear = css`
+    padding: 20px;
+    grid-area: clear;
 `
 const stuff = css`
     padding: 20px;
     grid-area: stuff;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 1000px;
+    grid-template-rows: 500px;
     grid-template-areas: 'todo started helpneeded done';
+    overflow: auto;
 `
 const todo = css`
     padding: 20px;
     grid-area: todo;
+    border: black;
+    border-style: dotted;
+    text-align: center;
+    font-size: 25px;
 `
 const started = css`
     padding: 20px;
     grid-area: started;
+    border: black;
+    border-style: dotted;
+    text-align: center;
+    font-size: 25px;
 `
 const helpneeded = css`
     padding: 20px;
     grid-area: helpneeded;
+    border: black;
+    border-style: dotted;
+    text-align: center;
+    font-size: 25px;
 `
 const done = css`
     padding: 20px;
     grid-area: done;
+    border: black;
+    border-style: dotted;
+    text-align: center;
+    font-size: 25px;
+`
+const modalGrid = css`
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 50px 50px;
+    grid-template-areas:
+        'nameLabel nameInput'
+        'descLabel descInput';
+    background-color: #fff;
+    color: #444;
+    width: 100%;
+    padding-left: 15px;
+`
+
+const nameLabel = css`
+    padding: 20px;
+    grid-area: nameLabel;
+    text-align: right;
+`
+
+const nameInput = css`
+    padding: 20px;
+    grid-area: nameInput;
+`
+const descLabel = css`
+    padding: 20px;
+    grid-area: descLabel;
+    text-align: right;
+`
+const descInput = css`
+    padding: 20px;
+    grid-area: descInput;
 `
 const options = ['todo', 'started', 'helpneeded', 'done']
 const WhatsThePlan = () => {
@@ -75,6 +136,17 @@ const WhatsThePlan = () => {
         localStorage.setItem('list', JSON.stringify(a))
         setListState(a)
     }
+    const closeTask = (e: any) => {
+        let a = [...listState]
+        const index = _.findIndex(listState, { name: e.target.id })
+
+        if (index !== -1) {
+            a.splice(index, 1)
+        }
+
+        localStorage.setItem('list', JSON.stringify(a))
+        setListState(a)
+    }
     const produceList = (items: any) => {
         var a = items
             ? items.map((rating: any, idx: number) => {
@@ -89,6 +161,9 @@ const WhatsThePlan = () => {
                               paddingBottom: '20px',
                               borderRadius: '25px',
                               textAlign: 'center',
+                              margin: 'auto',
+                              marginTop: '10px',
+                              marginBottom: '10px',
                           }}
                       >
                           <h3>{rating.name}</h3>
@@ -115,6 +190,19 @@ const WhatsThePlan = () => {
                                   Move Back
                               </Button>
                           )}
+                          {rating.status == 'done' && (
+                              <Button
+                                  type="primary"
+                                  style={{
+                                      backgroundColor: 'red',
+                                      paddingTop: '5px',
+                                  }}
+                                  onClick={closeTask}
+                                  id={rating.name}
+                              >
+                                  Remove
+                              </Button>
+                          )}
                       </div>
                   )
               })
@@ -135,9 +223,7 @@ const WhatsThePlan = () => {
         let a = [...listState]
         var name = (document.getElementById('listId') as HTMLInputElement).value
         var desc = (document.getElementById('desc') as HTMLInputElement).value
-        var statusbox = document.getElementById('status') as any
-        var status = statusbox.options[statusbox.selectedIndex].value
-        a.push({ name: name, desc: desc, status: status })
+        a.push({ name: name, desc: desc, status: 'todo' })
 
         localStorage.setItem('list', JSON.stringify(a))
         setListState(a)
@@ -151,34 +237,45 @@ const WhatsThePlan = () => {
     return (
         <div css={wrapper}>
             <div css={helpfulinfo}>
-                <Button
-                    type="danger"
-                    onClick={clearAll}
-                    style={{ paddingRight: '20px' }}
-                >
-                    Clear All
-                </Button>
-                <Button type="primary" onClick={showModal}>
-                    Create new
-                </Button>
+                <div css={clear}>
+                    <Button
+                        type="danger"
+                        onClick={clearAll}
+                        style={{ paddingRight: '20px' }}
+                    >
+                        Clear All
+                    </Button>
+                </div>
+                <div css={create}>
+                    <Button type="primary" onClick={showModal}>
+                        Create new
+                    </Button>
+                </div>
                 <Modal
                     title="Add a new task"
                     visible={isVisible}
                     onOk={handleOk}
                     onCancel={handleCancel}
                 >
-                    <input type="text" id="listId" placeholder="Task Name" />
-                    <input
-                        type="text"
-                        id="desc"
-                        placeholder="Task Description"
-                    />
-                    <select id="status">
-                        <option value="todo">To Do</option>
-                        <option value="started">Started</option>
-                        <option value="helpneeded">Need Help</option>
-                        <option value="done">Done</option>
-                    </select>
+                    <div css={modalGrid}>
+                        <div css={nameLabel}>Name</div>
+                        <div css={nameInput}>
+                            <input
+                                type="text"
+                                id="listId"
+                                placeholder="Task Name"
+                            />
+                        </div>
+
+                        <div css={descLabel}>Description</div>
+                        <div css={descInput}>
+                            <input
+                                type="text"
+                                id="desc"
+                                placeholder="Task Description"
+                            />
+                        </div>
+                    </div>
                 </Modal>
             </div>
             <div css={stuff}>
