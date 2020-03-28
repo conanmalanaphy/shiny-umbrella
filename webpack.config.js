@@ -5,9 +5,9 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 var CompressionPlugin = require('compression-webpack-plugin')
 var webpack = require('webpack')
 module.exports = {
-    mode: 'production',
     entry: {
         index: './src/index.tsx',
+        App: './src/App.tsx',
         WhatsTheRating: './src/Core/WhatsTheRating.tsx',
         WhatsThePlan: './src/Core/WhatsThePlan.tsx',
         InitialPage: './src/Core/InitialPage.tsx',
@@ -109,7 +109,13 @@ module.exports = {
     ],
     optimization: {
         splitChunks: {
-            chunks: 'all',
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
         },
         usedExports: true,
     },

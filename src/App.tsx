@@ -2,10 +2,11 @@
 import { css, jsx } from '@emotion/core'
 import './App.css'
 import BasicMenu from './Core/Menu'
+import React, { Suspense } from 'react'
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import InitialPage from './Core/InitialPage'
-import WhatsTheRating from './Core/WhatsTheRating'
-import WhatsThePlan from './Core/WhatsThePlan'
+const WhatsTheRating = React.lazy(() => import('./Core/WhatsTheRating'))
+const WhatsThePlan = React.lazy(() => import('./Core/WhatsThePlan'))
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -41,11 +42,19 @@ function App() {
                         <Route exact path="/" render={() => <InitialPage />} />
                         <Route
                             path="/WhatsTheRating"
-                            render={() => <WhatsTheRating />}
+                            render={() => (
+                                <Suspense fallback={<div>Loading...</div>}>
+                                    <WhatsTheRating />
+                                </Suspense>
+                            )}
                         />
                         <Route
                             path="/WhatsThePlan"
-                            render={() => <WhatsThePlan />}
+                            render={() => (
+                                <Suspense fallback={<div>Loading...</div>}>
+                                    <WhatsThePlan />
+                                </Suspense>
+                            )}
                         />
                     </div>
                 </div>
