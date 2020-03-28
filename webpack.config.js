@@ -111,5 +111,6 @@ module.exports = {
         splitChunks: {
             chunks: 'all',
         },
+        usedExports: true,
     },
 }
