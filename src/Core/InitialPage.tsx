@@ -70,12 +70,37 @@ class InitialPage extends Component {
     render() {
         return (
             <div>
-                <div className="parallax"></div>
-
+                <div className="fre">
+                    <div
+                        style={{
+                            position: 'absolute',
+                            color: 'white',
+                            left: '50%',
+                            top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                        }}
+                    >
+                        <p style={{ fontSize: '30px' }}>
+                            Hi, I'm <b>Conan Malanaphy.</b>
+                        </p>
+                        <p style={{ fontSize: '30px' }}>
+                            I'm a Front End developer.
+                        </p>
+                    </div>
+                    <div id="stars"></div> <div id="stars2"></div>
+                    <div id="stars3"></div>
+                </div>
                 <div css={wrapper}>
                     <div css={aboutMyself}>
                         <div style={{ textAlign: 'center' }}>
-                            <h3> About</h3>
+                            <h3
+                                style={{
+                                    textAlign: 'center',
+                                    textDecoration: 'underline',
+                                }}
+                            >
+                                About
+                            </h3>
                             <p>
                                 I am Conan Malanaphy, a Front-End Developer
                                 based in London. I am primarily focused on
