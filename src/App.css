@@ -263,7 +263,7 @@ html
         background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         overflow: hidden;
         min-height: 500px;
-        cursor: url('rocket.png'), auto;
+        cursor: url('rocketCursor.png'), auto;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
