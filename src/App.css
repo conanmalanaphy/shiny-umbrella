@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600&display=swap');
 .App {
     text-align: center;
 }
@@ -31,11 +32,38 @@
         transform: rotate(360deg);
     }
 }
-
-
+.lookbelow{
+    border-style: solid;
+    border-color:white;
+    width: 45%;
+    text-align: center;
+    height: 41px;
+    margin: auto;
+    line-height: 41px;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+.lookbelow:hover{
+    background-color: #1890ff;
+    border-color:#1890ff;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+}
+.rotatingdropdown{
+    transition: 1s all;
+}
+.rotatingdropdown:hover{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: 1s all;
+}
 .bob {
     height: 1000px;
     background-color: white;
+    font-family: 'Baloo Thambi 2', cursive;
     font-size: 36px;
 }
 .menu-center {
@@ -45,6 +73,37 @@
     width: 50px;
     margin-top: 5px;
     margin-bottom: -5px;
+}
+
+.whatsthescore {
+    background-image: url('wht.PNG');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    color: black;
+    background-color: #001628;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    moz-box-shadow: 10px 10px 5px #888;
+    webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+}
+.whatstheplan {
+    background-image: url('plan.PNG');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    color: black;
+    background-color: #001628;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    moz-box-shadow: 10px 10px 5px #888;
+    webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
 }
 .hundred {
     width: 100%;
@@ -264,6 +323,7 @@ html
         overflow: hidden;
         min-height: 500px;
         cursor: url('rocketCursor.png'), auto;
+        font-family: 'Baloo Thambi 2', cursive;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;

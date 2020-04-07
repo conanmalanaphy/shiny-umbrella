@@ -1,64 +1,62 @@
 /** @jsx jsx */
 import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
+import Carousel from 'antd/lib/carousel'
+
+import 'antd/lib/carousel/style/index.css'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
+const mainwrapper = css`
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 700px 700px 700px;
+    grid-template-areas:
+        'space'
+        'about'
+        'projects';
+    font-family: 'Baloo Thambi 2', cursive;
+`
+const space = css`
+    grid-area: space;
+`
 const wrapper = css`
+    grid-area: about;
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 600px 200px 200px 200px;
-    grid-template-areas:
-        '... aboutMyself ...'
-        '... whatsTheRating ...'
-        '... whatsTheScore ...'
-        '... whatsThePlan ...';
+    grid-template-rows: 600px;
+    grid-template-areas: '... aboutMyself ...';
     background-color: #fff;
     color: #444;
     width: 100%;
+    font-family: 'Baloo Thambi 2', cursive;
 `
 
-const whatsTheRating = css`
-    padding: 20px;
-    grid-area: whatsTheRating;
-`
-
-const whatsThePlan = css`
-    grid-area: whatsThePlan;
-    display: inline-block;
-    padding: 20px;
-`
-const whatsTheScore = css`
-    grid-area: whatsTheScore;
-    padding: 20px;
-`
 const aboutMyself = css`
     grid-area: aboutMyself;
     padding: 20px;
     font-size: 29px;
+    font-family: 'Baloo Thambi 2', cursive;
 `
 
-const pStyle = {
-    width: '90%',
-    color: 'black',
-    backgroundColor: '#001628',
-    border: '2px solid black',
-    borderRadius: '5px',
-    padding: '10px',
-    MozBoxShadow: '10px 10px 5px #888',
-    WebkitBoxShadow: '10px 10px 5px #888',
-    boxShadow: '10px 10px 5px #888',
-}
-
-const dStyle = {
-    width: 'auto',
-    color: 'black',
-    backgroundColor: '#C4C4C4',
-    border: '1px solid black',
-    borderRadius: '5px',
-    padding: '5px',
-}
-
+const projectsWrapper = css`
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 600px;
+    grid-template-areas: '... project ...';
+    background-color: #fff;
+    color: #444;
+    width: 100%;
+    background-color: #2f325c47;
+    textalign: 'center';
+`
+const project = css`
+    grid-area: project;
+    width: 100%;
+    height: 90%;
+    padding: 34px;
+`
 class InitialPage extends Component {
     public state: any = []
     constructor(props: any) {
@@ -69,8 +67,8 @@ class InitialPage extends Component {
     }
     render() {
         return (
-            <div>
-                <div className="fre">
+            <div css={mainwrapper}>
+                <div className="fre" css={space}>
                     <div
                         style={{
                             position: 'absolute',
@@ -86,6 +84,7 @@ class InitialPage extends Component {
                         <p style={{ fontSize: '30px' }}>
                             I'm a Front End developer.
                         </p>
+                        <div className="lookbelow">View my work</div>
                     </div>
                     <div id="stars"></div> <div id="stars2"></div>
                     <div id="stars3"></div>
@@ -124,7 +123,7 @@ class InitialPage extends Component {
                                 rel="noopener noreferrer"
                                 href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
                             >
-                                Linked in
+                                asd
                             </a>
                         </p>
                         <p style={{ textAlign: 'center' }}>
@@ -137,32 +136,26 @@ class InitialPage extends Component {
                             </a>
                         </p>
                     </div>
-                    <div css={whatsTheRating}>
-                        <div style={pStyle}>
-                            {' '}
-                            <div style={dStyle}>
-                                Whats the ratings - Restful Api Project Image +
-                                what its about React image
-                            </div>
-                        </div>
-                    </div>
-                    <div css={whatsTheScore}>
-                        {' '}
-                        <div style={pStyle}>
-                            {' '}
-                            <div style={dStyle}>
-                                Whats the Score - Python project Image + what
-                                its about
-                            </div>
-                        </div>
-                    </div>
-                    <div css={whatsThePlan}>
-                        <div style={pStyle}>
-                            {' '}
-                            <div style={dStyle}>
-                                Whats the plan - React Project Image + what its
-                                about
-                            </div>
+                </div>
+                <div css={projectsWrapper}>
+                    <div css={project}>
+                        <h2
+                            style={{
+                                textAlign: 'center',
+                                textDecoration: 'underline',
+                            }}
+                        >
+                            Projects
+                        </h2>
+                        <div style={{ height: '100%' }}>
+                            <Carousel dotPosition={'top'} autoplay>
+                                <div>
+                                    <div className="whatsTheScore"></div>
+                                </div>
+                                <div>
+                                    <div className="whatstheplan"></div>
+                                </div>
+                            </Carousel>
                         </div>
                     </div>
                 </div>
