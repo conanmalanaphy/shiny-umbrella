@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core'
 import Carousel from 'antd/lib/carousel'
 
 import 'antd/lib/carousel/style/index.css'
+import '../Css/css/all.min.css'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -109,32 +110,79 @@ class InitialPage extends Component {
                                 website for asset management. I have projects
                                 below that show the different areas I know.
                             </p>
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="/conan_malanaphy_cv.pdf"
-                            >
-                                My CV
-                            </a>
                         </div>
-                        <p style={{ textAlign: 'center' }}>
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
+                        <div
+                            style={{
+                                width: '100%',
+                                color: 'black',
+                                border: '2px solid black',
+                                borderRadius: '5px',
+                                padding: '10px',
+                                boxShadow: 'rgb(136, 136, 136) 10px 10px 5px',
+                            }}
+                        >
+                            <span
+                                style={{
+                                    display: 'inline-block',
+                                    width: '35%',
+                                    textAlign: 'center',
+                                }}
                             >
-                                asd
-                            </a>
-                        </p>
-                        <p style={{ textAlign: 'center' }}>
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://github.com/conanmalanaphy"
+                                {' '}
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href="/conan_malanaphy_cv.pdf"
+                                    style={{
+                                        color: '#001529',
+                                        fontSize: '55px',
+                                    }}
+                                >
+                                    <i
+                                        className="fa fa-file"
+                                        aria-hidden="true"
+                                    ></i>
+                                </a>
+                            </span>
+                            <span
+                                style={{
+                                    display: 'inline-block',
+                                    width: '30%',
+                                    textAlign: 'center',
+                                }}
                             >
-                                GitHub
-                            </a>
-                        </p>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
+                                    style={{
+                                        color: '#001529',
+                                        fontSize: '55px',
+                                    }}
+                                >
+                                    <i className="fab fa-linkedin"></i>
+                                </a>
+                            </span>
+                            <span
+                                style={{
+                                    display: 'inline-block',
+                                    width: '35%',
+                                    textAlign: 'center',
+                                }}
+                            >
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href="https://github.com/conanmalanaphy"
+                                    style={{
+                                        color: '#001529',
+                                        fontSize: '55px',
+                                    }}
+                                >
+                                    <i className="fab fa-github"></i>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div css={projectsWrapper}>
