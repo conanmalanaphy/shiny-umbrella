@@ -85,7 +85,10 @@ class InitialPage extends Component {
                         <p style={{ fontSize: '30px' }}>
                             I'm a Front End developer.
                         </p>
-                        <div className="lookbelow">View my work</div>
+                        <div id="rotator" className="lookbelow">
+                            View my work
+                            <i className="fas fa-arrow-right"></i>
+                        </div>
                     </div>
                     <div id="stars"></div> <div id="stars2"></div>
                     <div id="stars3"></div>
@@ -111,77 +114,81 @@ class InitialPage extends Component {
                                 below that show the different areas I know.
                             </p>
                         </div>
-                        <div
-                            style={{
-                                width: '100%',
-                                color: 'black',
-                                border: '2px solid black',
-                                borderRadius: '5px',
-                                padding: '10px',
-                                boxShadow: 'rgb(136, 136, 136) 10px 10px 5px',
-                            }}
-                        >
-                            <span
+                        <div style={{ width: '100%' }}>
+                            <div
                                 style={{
-                                    display: 'inline-block',
-                                    width: '35%',
-                                    textAlign: 'center',
+                                    width: '20%',
+                                    color: 'black',
+                                    border: '2px solid black',
+                                    borderRadius: '5px',
+                                    padding: '10px',
+                                    boxShadow:
+                                        'rgb(136, 136, 136) 10px 10px 5px',
                                 }}
+                                className="moveacross"
                             >
-                                {' '}
-                                <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href="/conan_malanaphy_cv.pdf"
+                                <span
                                     style={{
-                                        color: '#001529',
-                                        fontSize: '55px',
+                                        display: 'inline-block',
+                                        width: '35%',
+                                        textAlign: 'center',
                                     }}
                                 >
-                                    <i
-                                        className="fa fa-file"
-                                        aria-hidden="true"
-                                    ></i>
-                                </a>
-                            </span>
-                            <span
-                                style={{
-                                    display: 'inline-block',
-                                    width: '30%',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
+                                    {' '}
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="/conan_malanaphy_cv.pdf"
+                                        style={{
+                                            color: '#001529',
+                                            fontSize: '55px',
+                                        }}
+                                    >
+                                        <i
+                                            className="fa fa-file"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </a>
+                                </span>
+                                <span
                                     style={{
-                                        color: '#001529',
-                                        fontSize: '55px',
+                                        display: 'inline-block',
+                                        width: '30%',
+                                        textAlign: 'center',
                                     }}
                                 >
-                                    <i className="fab fa-linkedin"></i>
-                                </a>
-                            </span>
-                            <span
-                                style={{
-                                    display: 'inline-block',
-                                    width: '35%',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href="https://github.com/conanmalanaphy"
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://www.linkedin.com/in/conan-malanaphy-946260a7/"
+                                        style={{
+                                            color: '#001529',
+                                            fontSize: '55px',
+                                        }}
+                                    >
+                                        <i className="fab fa-linkedin"></i>
+                                    </a>
+                                </span>
+                                <span
                                     style={{
-                                        color: '#001529',
-                                        fontSize: '55px',
+                                        display: 'inline-block',
+                                        width: '35%',
+                                        textAlign: 'center',
                                     }}
                                 >
-                                    <i className="fab fa-github"></i>
-                                </a>
-                            </span>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://github.com/conanmalanaphy"
+                                        style={{
+                                            color: '#001529',
+                                            fontSize: '55px',
+                                        }}
+                                    >
+                                        <i className="fab fa-github"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
