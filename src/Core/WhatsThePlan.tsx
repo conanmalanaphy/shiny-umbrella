@@ -1,5 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
+
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -13,6 +15,9 @@ import Button from 'antd/lib/button'
 import 'antd/lib/button/style/index.css'
 import 'antd/lib/modal/style/index.css'
 
+interface BoxProps {
+    bg: string
+}
 const wrapper = css`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -52,44 +57,51 @@ const stuff = css`
     overflow: auto;
 `
 const todo = css`
-    padding: 20px;
     grid-area: todo;
     border: black;
-    border-style: dotted;
+    border-style: solid;
     text-align: center;
     font-size: 25px;
+    border-bottom: none;
+
+    border-left: none;
+    border-top: none;
 `
 const started = css`
-    padding: 20px;
     grid-area: started;
     border: black;
-    border-style: dotted;
+    border-style: solid;
     text-align: center;
     font-size: 25px;
+    border-left: none;
+    border-bottom: none;
+
+    border-top: none;
 `
 const helpneeded = css`
-    padding: 20px;
     grid-area: helpneeded;
     border: black;
-    border-style: dotted;
+    border-style: solid;
     text-align: center;
     font-size: 25px;
+    border-bottom: none;
+
+    border-left: none;
+    border-top: none;
 `
 const done = css`
-    padding: 20px;
     grid-area: done;
-    border: black;
-    border-style: dotted;
     text-align: center;
     font-size: 25px;
 `
 const modalGrid = css`
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 50px 50px 50px;
     grid-template-areas:
         'nameLabel nameInput'
-        'descLabel descInput';
+        'descLabel descInput'
+        'projectLabel projectInput';
     background-color: #fff;
     color: #444;
     width: 100%;
@@ -115,6 +127,41 @@ const descInput = css`
     padding: 20px;
     grid-area: descInput;
 `
+const projectLabel = css`
+    padding: 20px;
+    grid-area: projectLabel;
+    text-align: right;
+`
+const projectInput = css`
+    padding: 20px;
+    grid-area: projectInput;
+`
+const borderbottom = css`
+    border-width: initial;
+    border-color: black black;
+    border-image: initial;
+    border-style: none solid solid none;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    padding-bottom: 10px;
+    font-family: 'Baloo Thambi 2', cursive;
+`
+
+const Box = styled('div')<BoxProps>`
+    border: black;
+    border-color: black;
+    border-style: solid;
+    width: 187px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: ${(props: BoxProps) => props.bg};
+`
+
 const options = ['todo', 'started', 'helpneeded', 'done']
 const WhatsThePlan = () => {
     const [listState, setListState] = useState(
@@ -150,22 +197,24 @@ const WhatsThePlan = () => {
     const produceList = (items: any) => {
         var a = items
             ? items.map((rating: any, idx: number) => {
+                  const color =
+                      rating.catagory == 'sideProject'
+                          ? 'blue'
+                          : rating.catagory == 'personal'
+                          ? 'green'
+                          : 'purple'
                   return (
-                      <div
-                          key={idx}
-                          style={{
-                              border: 'black',
-                              borderColor: 'black',
-                              borderStyle: 'solid',
-                              width: '187px',
-                              paddingBottom: '20px',
-                              borderRadius: '25px',
-                              textAlign: 'center',
-                              margin: 'auto',
-                              marginTop: '10px',
-                              marginBottom: '10px',
-                          }}
-                      >
+                      <Box key={idx} bg={color}>
+                          <div
+                              style={{
+                                  height: '23px',
+                                  width: '188px',
+                                  borderRadius: '19px',
+                                  backgroundColor: '#1961bb',
+                                  borderBottomLeftRadius: 0,
+                                  borderBottomRightRadius: 0,
+                              }}
+                          ></div>
                           <h3>{rating.name}</h3>
                           <h5>{rating.desc}</h5>
                           {rating.status !== 'done' && (
@@ -203,7 +252,7 @@ const WhatsThePlan = () => {
                                   Remove
                               </Button>
                           )}
-                      </div>
+                      </Box>
                   )
               })
             : null
@@ -223,7 +272,8 @@ const WhatsThePlan = () => {
         let a = [...listState]
         var name = (document.getElementById('listId') as HTMLInputElement).value
         var desc = (document.getElementById('desc') as HTMLInputElement).value
-        a.push({ name: name, desc: desc, status: 'todo' })
+        var bb = (document.getElementById('catagory') as HTMLInputElement).value
+        a.push({ name: name, desc: desc, status: 'todo', catagory: bb })
 
         localStorage.setItem('list', JSON.stringify(a))
         setListState(a)
@@ -275,12 +325,22 @@ const WhatsThePlan = () => {
                                 placeholder="Task Description"
                             />
                         </div>
+                        <div css={projectLabel}>Project</div>
+                        <div css={projectInput}>
+                            <select id="catagory">
+                                <option value="sideProject">
+                                    Side Project
+                                </option>
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                            </select>
+                        </div>
                     </div>
                 </Modal>
             </div>
             <div css={stuff}>
                 <div css={todo}>
-                    To Do
+                    <div css={borderbottom}>To Do</div>
                     {produceList(
                         _.filter(listState, function(o: any) {
                             return o.status === 'todo'
@@ -288,7 +348,8 @@ const WhatsThePlan = () => {
                     )}
                 </div>
                 <div css={started}>
-                    Started
+                    <div css={borderbottom}>Started</div>
+
                     {produceList(
                         _.filter(listState, function(o: any) {
                             return o.status === 'started'
@@ -296,7 +357,8 @@ const WhatsThePlan = () => {
                     )}
                 </div>
                 <div css={helpneeded}>
-                    Help!!
+                    <div css={borderbottom}>Help!!</div>
+
                     {produceList(
                         _.filter(listState, function(o: any) {
                             return o.status === 'helpneeded'
@@ -304,7 +366,8 @@ const WhatsThePlan = () => {
                     )}
                 </div>
                 <div css={done}>
-                    Done
+                    <div css={borderbottom}>Done</div>
+
                     {produceList(
                         _.filter(listState, function(o: any) {
                             return o.status === 'done'

@@ -9,21 +9,20 @@ import '../Css/css/all.min.css'
 ///          CSS Styles           ///
 /////////////////////////////////////
 const mainwrapper = css`
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 700px 700px 700px;
-    grid-template-areas:
-        'space'
-        'about'
-        'projects';
-    font-family: 'Baloo Thambi 2', cursive;
+    display: flex;
+    flex-direction: column;
 `
 const space = css`
-    grid-area: space;
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
 `
+
 const wrapper = css`
-    grid-area: about;
-    display: grid;
+    display: flex;
+    flex-grow: 1;
+    height: 50vh;
+    min-height: 440px;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 600px;
     grid-template-areas: '... aboutMyself ...';
@@ -41,8 +40,9 @@ const aboutMyself = css`
 `
 
 const projectsWrapper = css`
-    grid-area: projects;
     display: grid;
+    flex-grow: 1;
+    height: 100vh;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 600px;
     grid-template-areas: '... project ...';
@@ -69,7 +69,7 @@ class InitialPage extends Component {
     render() {
         return (
             <div css={mainwrapper}>
-                <div className="fre" css={space}>
+                <div css={space} className="fre">
                     <div
                         style={{
                             position: 'absolute',
