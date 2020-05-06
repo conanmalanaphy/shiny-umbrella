@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 import styled from '@emotion/styled'
+import { useForm } from 'react-hook-form'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css' // optional
 
 /////////////////////////////////////
 ///          CSS Styles           ///
@@ -164,6 +167,7 @@ const Box = styled('div')<BoxProps>`
 
 const options = ['todo', 'started', 'helpneeded', 'done']
 const WhatsThePlan = () => {
+    const { register, handleSubmit, errors, reset } = useForm()
     const [listState, setListState] = useState(
         JSON.parse(localStorage.getItem('list')) || []
     )
@@ -268,7 +272,8 @@ const WhatsThePlan = () => {
         setIsVisible(true)
     }
 
-    const handleOk = () => {
+    const handleOk = (data: any) => {
+        console.log(data)
         let a = [...listState]
         var name = (document.getElementById('listId') as HTMLInputElement).value
         var desc = (document.getElementById('desc') as HTMLInputElement).value
@@ -281,6 +286,7 @@ const WhatsThePlan = () => {
     }
 
     const handleCancel = () => {
+        reset()
         setIsVisible(false)
     }
 
@@ -304,26 +310,55 @@ const WhatsThePlan = () => {
                 <Modal
                     title="Add a new task"
                     visible={isVisible}
-                    onOk={handleOk}
+                    onOk={handleSubmit(handleOk)}
                     onCancel={handleCancel}
                 >
-                    <div css={modalGrid}>
+                    <form
+                        onSubmit={handleSubmit((data: any) => {
+                            console.log(data)
+                        })}
+                        css={modalGrid}
+                    >
                         <div css={nameLabel}>Name</div>
                         <div css={nameInput}>
-                            <input
-                                type="text"
-                                id="listId"
-                                placeholder="Task Name"
-                            />
+                            <Tippy
+                                visible={Object.prototype.hasOwnProperty.call(
+                                    errors,
+                                    'exampleRequired'
+                                )}
+                                content="This field is required"
+                                placement="right"
+                                trigger="manual"
+                            >
+                                <input
+                                    type="text"
+                                    id="listId"
+                                    placeholder="Task Name"
+                                    name="exampleRequired"
+                                    ref={register({ required: true })}
+                                />
+                            </Tippy>
                         </div>
 
                         <div css={descLabel}>Description</div>
                         <div css={descInput}>
-                            <input
-                                type="text"
-                                id="desc"
-                                placeholder="Task Description"
-                            />
+                            <Tippy
+                                visible={Object.prototype.hasOwnProperty.call(
+                                    errors,
+                                    'desc'
+                                )}
+                                content="This field is required"
+                                placement="right"
+                                trigger="manual"
+                            >
+                                <input
+                                    type="text"
+                                    id="desc"
+                                    placeholder="Task Description"
+                                    name="desc"
+                                    ref={register({ required: true })}
+                                />
+                            </Tippy>
                         </div>
                         <div css={projectLabel}>Project</div>
                         <div css={projectInput}>
@@ -335,7 +370,7 @@ const WhatsThePlan = () => {
                                 <option value="work">Work</option>
                             </select>
                         </div>
-                    </div>
+                    </form>
                 </Modal>
             </div>
             <div css={stuff}>
