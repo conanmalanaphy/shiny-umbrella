@@ -14,17 +14,21 @@ import { useState } from 'react'
 import _ from 'lodash'
 import Modal from 'antd/lib/modal'
 import Button from 'antd/lib/button'
-
 import 'antd/lib/button/style/index.css'
 import 'antd/lib/modal/style/index.css'
 
 interface BoxProps {
     bg: string
 }
+
+const bob = css`
+    padding: 5px;
+    margin: 5px;
+`
 const wrapper = css`
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 100px 500px;
+    grid-template-rows: 100px calc(100% - 100px);
     grid-template-areas:
         '... helpfulinfo helpfulinfo...'
         'stuff stuff stuff stuff';
@@ -32,6 +36,7 @@ const wrapper = css`
     color: #444;
     width: 100%;
     padding-left: 15px;
+    height: 100%;
 `
 
 const helpfulinfo = css`
@@ -66,7 +71,6 @@ const todo = css`
     text-align: center;
     font-size: 25px;
     border-bottom: none;
-
     border-left: none;
     border-top: none;
 `
@@ -88,7 +92,6 @@ const helpneeded = css`
     text-align: center;
     font-size: 25px;
     border-bottom: none;
-
     border-left: none;
     border-top: none;
 `
@@ -155,7 +158,7 @@ const Box = styled('div')<BoxProps>`
     border: black;
     border-color: black;
     border-style: solid;
-    width: 187px;
+    width: 240px;
     padding-bottom: 20px;
     border-radius: 25px;
     text-align: center;
@@ -203,16 +206,16 @@ const WhatsThePlan = () => {
             ? items.map((rating: any, idx: number) => {
                   const color =
                       rating.catagory == 'sideProject'
-                          ? 'blue'
+                          ? '#7575a3'
                           : rating.catagory == 'personal'
-                          ? 'green'
-                          : 'purple'
+                          ? '#ffa64d'
+                          : '#79d279'
                   return (
                       <Box key={idx} bg={color}>
                           <div
                               style={{
                                   height: '23px',
-                                  width: '188px',
+                                  width: '239px',
                                   borderRadius: '19px',
                                   backgroundColor: '#1961bb',
                                   borderBottomLeftRadius: 0,
@@ -221,41 +224,49 @@ const WhatsThePlan = () => {
                           ></div>
                           <h3>{rating.name}</h3>
                           <h5>{rating.desc}</h5>
-                          {rating.status !== 'done' && (
-                              <Button
-                                  type="primary"
-                                  onClick={_.partial(moveAlong, true)}
-                                  id={rating.name}
-                              >
-                                  Move Along
-                              </Button>
-                          )}
-                          {rating.status !== 'todo' && (
-                              <Button
-                                  type="primary"
-                                  style={{
-                                      backgroundColor: 'red',
-                                      paddingTop: '5px',
-                                  }}
-                                  onClick={_.partial(moveAlong, false)}
-                                  id={rating.name}
-                              >
-                                  Move Back
-                              </Button>
-                          )}
-                          {rating.status == 'done' && (
-                              <Button
-                                  type="primary"
-                                  style={{
-                                      backgroundColor: 'red',
-                                      paddingTop: '5px',
-                                  }}
-                                  onClick={closeTask}
-                                  id={rating.name}
-                              >
-                                  Remove
-                              </Button>
-                          )}
+                          <div
+                              style={{
+                                  display: 'flex',
+                                  flexDirection: 'row',
+                                  justifyContent: 'center',
+                              }}
+                          >
+                              {rating.status !== 'done' && (
+                                  <Button
+                                      type="primary"
+                                      onClick={_.partial(moveAlong, true)}
+                                      id={rating.name}
+                                      shape="round"
+                                      css={bob}
+                                  >
+                                      Move Along
+                                  </Button>
+                              )}
+                              {rating.status !== 'todo' && (
+                                  <Button
+                                      type="primary"
+                                      danger
+                                      onClick={_.partial(moveAlong, false)}
+                                      id={rating.name}
+                                      shape="round"
+                                      css={bob}
+                                  >
+                                      Move Back
+                                  </Button>
+                              )}
+                              {rating.status == 'done' && (
+                                  <Button
+                                      type="primary"
+                                      danger
+                                      onClick={closeTask}
+                                      id={rating.name}
+                                      shape="round"
+                                      css={bob}
+                                  >
+                                      Remove
+                                  </Button>
+                              )}
+                          </div>
                       </Box>
                   )
               })
