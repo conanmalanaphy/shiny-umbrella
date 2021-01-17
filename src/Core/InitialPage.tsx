@@ -2,9 +2,10 @@
 import { Component } from 'react'
 import { css, jsx } from '@emotion/core'
 import Carousel from 'antd/lib/carousel'
-
+import React from 'react'
 import 'antd/lib/carousel/style/index.css'
 import '../Css/css/all.min.css'
+import '../index.css'
 /////////////////////////////////////
 ///          CSS Styles           ///
 /////////////////////////////////////
@@ -16,20 +17,22 @@ const space = css`
     display: flex;
     flex-grow: 1;
     height: 100vh;
+    scroll-snap-align: start;
 `
 
 const wrapper = css`
-    display: flex;
+    display: grid;
     flex-grow: 1;
-    height: 50vh;
+    height: 100vh;
     min-height: 440px;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 600px;
+    grid-template-rows: 100vh;
     grid-template-areas: '... aboutMyself ...';
     background-color: #fff;
     color: #444;
     width: 100%;
     font-family: 'Baloo Thambi 2', cursive;
+    scroll-snap-align: start;
 `
 
 const aboutMyself = css`
@@ -51,6 +54,7 @@ const projectsWrapper = css`
     width: 100%;
     background-color: #2f325c47;
     textalign: 'center';
+    scroll-snap-align: start;
 `
 const project = css`
     grid-area: project;
@@ -65,7 +69,11 @@ class InitialPage extends Component {
         this.state = {
             data: null,
         }
+        this.myRef = React.createRef()  
     }
+
+    executeScroll = () => this.myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
     render() {
         return (
             <div css={mainwrapper}>
@@ -85,7 +93,7 @@ class InitialPage extends Component {
                         <p style={{ fontSize: '30px' }}>
                             I'm a Front End developer.
                         </p>
-                        <div id="rotator" className="lookbelow">
+                        <div id="rotator" className="lookbelow" onClick={this.executeScroll}> 
                             View my work
                             <i className="fas fa-arrow-right"></i>
                         </div>
@@ -93,7 +101,7 @@ class InitialPage extends Component {
                     <div id="stars"></div> <div id="stars2"></div>
                     <div id="stars3"></div>
                 </div>
-                <div css={wrapper}>
+                <div css={wrapper} id="about-me">
                     <div css={aboutMyself}>
                         <div style={{ textAlign: 'center' }}>
                             <h3
@@ -192,7 +200,7 @@ class InitialPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div css={projectsWrapper}>
+                <div css={projectsWrapper} id="project"  ref={this.myRef}>
                     <div css={project}>
                         <h2
                             style={{
